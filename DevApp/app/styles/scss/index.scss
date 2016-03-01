@@ -1,0 +1,73 @@
+@import '_normalize.scss';
+$font:10px/1.5 sans-serif,
+"Microsoft YaHei",
+"Arial";
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font: $font;
+    background-color: #eee;
+}
+
+body {
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+    display: inline-block;
+    width: 180px;
+    border: 1px solid #999;
+    background-color: #fff;
+    border-radius: 5px;
+    h2 {
+        text-align: left;
+        margin: 0;
+        padding: 10px;
+        padding-left: 18px;
+        border-radius: 3px;
+        border-bottom: 1px solid #999;
+        border-radius: 0;
+        button {
+            width: 60px;
+            height: 26px;
+            border-radius: 4px;
+            background-color: #938A8A;
+            color: #E5E0E1;
+            outline: none;
+        }
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li {
+            text-align: left;
+            padding: 6px 15px;
+            height: 18px;
+            line-height: 18px;
+            &+li {
+                border-top: 1px solid #999;
+            }
+            span {
+                float: right;
+                display: inline-block;
+                font-size: 15px;
+                width: 16px;
+                height: 16px;
+                line-height: 16px;
+                text-align: center;
+                border: 1px solid #888;
+                box-sizing: content-box;
+                border-radius: 11px;
+                cursor: pointer;
+                font-weight: bold;
+                &:hover {
+                    background-color: #EA7575;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
