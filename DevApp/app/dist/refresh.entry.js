@@ -87,6 +87,10 @@ webpackJsonp([2],[
 
 	    refresher.on('touchend', function () {
 	        //更新图片内容
+
+	        for (var i = 0; i < 9; i++) {
+	            imgsItem[i].src = '';
+	        }
 	        loadImgs();
 	    });
 	}();
