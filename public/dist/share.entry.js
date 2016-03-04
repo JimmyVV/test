@@ -146,7 +146,7 @@
 
 
 	// module
-	exports.push([module.id, ".cover{\n\tposition: absolute;\n\twidth: 100%;\n\ttop:0;\n\tleft:0;\n\theight: 100%;\n\tz-index: 1000;\n\tbackground-color: rgba(64,61,61,.72);\n}", ""]);
+	exports.push([module.id, ".cover {\n    position: absolute;\n    width: 100%;\n    top: 0;\n    left: 0;\n    height: 100%;\n    z-index: 1000;\n    background-color: rgba(64, 61, 61, .72);\n}\n\n.cover img {\n    position: absolute;\n    right: 0;\n    top: .5rem;\n    width: 7.2857142rem;\n    z-index: 5;\n}\n", ""]);
 
 	// exports
 
@@ -471,6 +471,7 @@
 		console.dir(document);
 		var div = document.createElement("div");
 		div.className = "cover";
+		div.innerHTML = '<img src="http://higege.hustonline.net/img/share.png">';
 		return div;
 	};
 	exports.createCover = createCover;

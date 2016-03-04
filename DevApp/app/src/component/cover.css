@@ -1,9 +1,17 @@
-.cover{
-	position: absolute;
-	width: 100%;
-	top:0;
-	left:0;
-	height: 100%;
-	z-index: 1000;
-	background-color: rgba(64,61,61,.72);
+.cover {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(64, 61, 61, .72);
+}
+
+.cover img {
+    position: absolute;
+    right: 0;
+    top: .5rem;
+    width: 7.2857142rem;
+    z-index: 5;
 }
