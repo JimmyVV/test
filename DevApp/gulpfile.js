@@ -17,8 +17,11 @@ var gulp = require('gulp'),
 
 
 
-gulp.task('watch', function() {
+gulp.task('watchsass', function() {
     gulp.watch('app/scss/**/*.scss', ['sass'])
+})
+gulp.task('watchjs', function() {
+    gulp.watch('app/dist/**.js', ['copy'])
 })
 gulp.task('sass', () => {
     var processors = [ //这里就是中间件
@@ -69,4 +72,4 @@ gulp.task('eslint', function() {
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 })
-gulp.task('default', ['sync', 'watch']);
+gulp.task('default', ['sync', 'watchsass','watchjs']);

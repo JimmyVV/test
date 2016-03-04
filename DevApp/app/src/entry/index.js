@@ -3,7 +3,7 @@ var $ = require('zepto');
 var contain = function() {
     var container = $('.container');
     var getPara = function(src) {
-        var reg = /images+\/(.*).png/;
+        var reg = /people+\/(.*).png/;
         return src.match(reg)[1];
     }
     var returnHref = function(src) {

@@ -9,7 +9,7 @@ webpackJsonp([1],[
 	var contain = function contain() {
 	    var container = $('.container');
 	    var getPara = function getPara(src) {
-	        var reg = /images+\/(.*).png/;
+	        var reg = /people+\/(.*).png/;
 	        return src.match(reg)[1];
 	    };
 	    var returnHref = function returnHref(src) {

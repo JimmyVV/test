@@ -18,7 +18,7 @@ var getImgs = (function(){
             return a;
         }
         //得到更新Img的连接
-        //比如: ['images/小明.png',....]
+        //比如: ['images/people/小明.png',....]
     var getImgs = function() {
         var kindsof = random(0, 2),
             select = produceNum(27, 9), //27,9
