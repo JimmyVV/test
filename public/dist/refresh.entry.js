@@ -33,8 +33,8 @@ webpackJsonp([2],[
 	    var getImgs = function getImgs() {
 	        var kindsof = random(0, 2),
 	            //[0,2)
-	        select = produceNum(27, 9),
-	            //27,9
+	        select = produceNum(26, 9),
+	            //26,9
 	        srcs = [],
 	            src;
 	        var _iteratorNormalCompletion = true;
@@ -47,6 +47,7 @@ webpackJsonp([2],[
 
 	                src = 'images/people/' + _data.data[kindsof][i] + '.png';
 	                srcs.push(src);
+	                console.log(i, src);
 	            }
 	        } catch (err) {
 	            _didIteratorError = true;
@@ -65,20 +66,25 @@ webpackJsonp([2],[
 
 	        return srcs;
 	    };
-	    var loadImgs = function loadImgs() {
-	        var srcs = getImgs(); //获得新的Img连接地址
-	        for (var i in srcs) {
-	            imgsItem[i].src = srcs[i];
-	            imgsItem[i].onload = function () {
-	                var _this = this;
+	    try {
+	        var loadImgs = function loadImgs() {
+	            var srcs = getImgs(); //获得新的Img连接地址
+	            for (var i in srcs) {
+	                imgsItem[i].src = srcs[i];
+	                imgsItem[i].onload = function () {
+	                    var _this = this;
 
-	                this.classList.add('active');
-	                setTimeout(function () {
-	                    _this.classList.remove('active');
-	                }, 1400);
-	            };
-	        }
-	    };
+	                    this.classList.add('active');
+	                    setTimeout(function () {
+	                        _this.classList.remove('active');
+	                    }, 1400);
+	                };
+	            }
+	        };
+	    } catch (e) {
+	        console.log(e.message);
+	    }
+
 	    refresher.on('touchend', function () {
 	        //更新图片内容
 	        loadImgs();

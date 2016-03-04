@@ -22,28 +22,34 @@ var refresh = (function() {
         //得到更新Img的连接
         //比如: ['images/people/小明.png',....]
     var getImgs = function() {
-        var kindsof = random(0, 2),  //[0,2)
-            select = produceNum(27, 9), //27,9
+        var kindsof = random(0, 2), //[0,2)
+            select = produceNum(26, 9), //26,9
             srcs = [],
             src;
         for (var i of select) {
             src = `images/people/${data[kindsof][i]}.png`;
             srcs.push(src);
+            console.log(i,src);
         }
         return srcs;
     }
-    var loadImgs = function() {
-        var srcs = getImgs(); //获得新的Img连接地址
-        for (var i in srcs) {
-            imgsItem[i].src = srcs[i];
-            imgsItem[i].onload = function() {
-                this.classList.add('active');
-                setTimeout(() => {
-                    this.classList.remove('active');
-                }, 1400);
+    try {
+        var loadImgs = function() {
+            var srcs = getImgs(); //获得新的Img连接地址
+            for (var i in srcs) {
+                imgsItem[i].src = srcs[i];
+                imgsItem[i].onload = function() {
+                    this.classList.add('active');
+                    setTimeout(() => {
+                        this.classList.remove('active');
+                    }, 1400);
+                }
             }
         }
+    } catch(e) {
+    	console.log(e.message);
     }
+
     refresher.on('touchend', function() {
         //更新图片内容
         loadImgs();
