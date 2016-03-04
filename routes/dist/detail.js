@@ -31,7 +31,7 @@ var getImgs = (function(){
         return srcs;
     }
     var getPara = function(){
-    	var select = random(0,30);
+    	var select = random(0,20);
     	var para = data.phara[select];
     	return para;
     }
