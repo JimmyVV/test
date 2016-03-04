@@ -1,10 +1,28 @@
-var util = require('util');
-function a () {
-     this.name='byvoid';
-     this.toString = function(){
-          return this.name;
-     };
+var $ = require('zepto');
+
+var contain = function() {
+    var container = $('.container');
+    var getPara = function(src) {
+        var reg = /images+\/(.*).png/;
+        return src.match(reg)[1];
+    }
+    var returnHref = function(src) {
+        return `/detail?name=${src}`;
+    }
+    container.on("touchstart", 'img', function(e) {
+        var src = getPara(e.target.src);
+        window.location.href = returnHref(src);
+    })
+};
+//异步加载数据
+var asyncAdd = function(src) {
+    var script = document.createElement('script');
+    script.src = src;
+    document.head.appendChild(script);
 }
-var obj = new a();
-console.log(util.inspect(obj,true));
-console.log(123);
+window.onload = function() {
+    asyncAdd('./dist/refresh.entry.js');
+};
+document.addEventListener("DOMContentLoaded", function() {
+    contain(); //当页面加载稳定时，执行
+}, false);

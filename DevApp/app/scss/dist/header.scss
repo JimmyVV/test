@@ -1,0 +1,13 @@
+$font:12px/1.5 sans-serif,
+"Microsoft YaHei",
+"Arial";
+html,
+body {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font: $font;
+}
+body {
+    background: url(../images/bg.png);
+}

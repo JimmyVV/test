@@ -16,16 +16,9 @@ var gulp = require('gulp'),
     group = require('gulp-group-files');
 
 
-gulp.task('webpack', () => {
-    gulp.watch('app/**/*.js',function(event){
-        gulp.src('app/**/*.js')
-        .pipe(webpack(config))
-        .pipe(gulp.dest('./app/dist'));
-    })
-})
 
 gulp.task('watch', function() {
-    gulp.watch('app/styles/**/*.scss', ['sass'])
+    gulp.watch('app/scss/**/*.scss', ['sass'])
 })
 gulp.task('sass', () => {
     var processors = [ //这里就是中间件
@@ -37,7 +30,7 @@ gulp.task('sass', () => {
         }),
         flexpost
     ];
-    return gulp.src("app/styles/scss/*.scss")
+    return gulp.src("app/scss/*.scss")
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss(processors))
         // .pipe(uglify())
@@ -56,17 +49,14 @@ gulp.task('sync', function() {
         }
     });
 });
-
-gulp.task('babel', function() {
-    // gulp.watch(['app/js/entry/upload.js'], function() {
-    return gulp.src(['app/js/entry/**/*.js'])
-        .pipe(babel({
-            presets: ['es2015']
-        }))
-        .pipe(gulp.dest('../js/entry'));
-
-
-});
+gulp.task('copy',function(){
+    gulp.src(['app/dist/**'])
+        .pipe(gulp.dest('../public/dist'));
+    gulp.src(['app/images/**'])
+        .pipe(gulp.dest('../public/images'));
+    gulp.src(['app/styles/**'])
+        .pipe(gulp.dest('../public/styles'));
+})
 
 gulp.task('eslint', function() {
     return gulp.src(['app/js/entry/upload.js'])

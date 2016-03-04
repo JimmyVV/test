@@ -1,0 +1,11 @@
+@mixin bgSetting($imgLeft,$imgRight) {
+    content: '';
+    width: 32px;
+    height: 30px;
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    background-image: url(../images/sprite.png);
+    background-position: $imgLeft $imgRight;
+    background-size: 500%;
+}
