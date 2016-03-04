@@ -16,9 +16,7 @@ var bind = (function() {
     var DOM2 = function() {
         if (document.addEventListener) {
             return function(ele, fn, type) {
-                ele.addEventListener(type, () => {
-                    fn();
-                }, false);
+                ele.addEventListener(type, fn, false);
             }
         } else {
             return "next";
@@ -46,8 +44,19 @@ var bind = (function() {
 var share = (function(){
     var shareBtn=$('.share-btn');  //分享Btn
     var coverDiv = cover.createCover();
-    bind(shareBtn,function(){
-        document.body.appendChild(coverDiv);
-    },'touchstart');
+    var isShow = false;
+    bind(shareBtn,function(event){
+        if(!isShow){
+            document.body.appendChild(coverDiv)
+            isShow = true;
+        };
+        event.stopPropagation();
+    },'touchend');
+    bind($('body'),function(){
+        if(isShow){
+            document.body.removeChild(coverDiv);
+            isShow = false;
+        }
+    },"touchend")
 })()
 

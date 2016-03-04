@@ -79,7 +79,7 @@ webpackJsonp([2],[
 	            };
 	        }
 	    };
-	    refresher.on('touchstart', function () {
+	    refresher.on('tap', function () {
 	        //更新图片内容
 	        loadImgs();
 	    });
