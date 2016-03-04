@@ -85,9 +85,8 @@ webpackJsonp([2],[
 	        console.log(e.message);
 	    }
 
-	    refresher.on('touchend', function () {
+	    refresher.on('tab', function () {
 	        //更新图片内容
-
 	        for (var i = 0; i < 9; i++) {
 	            imgsItem[i].src = '';
 	        }
