@@ -44,7 +44,7 @@ var refresh = (function() {
             }
         }
     }
-    refresher.on('tap', function() {
+    refresher.on('touchend', function() {
         //更新图片内容
         loadImgs();
     });
