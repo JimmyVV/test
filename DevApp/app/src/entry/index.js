@@ -24,5 +24,7 @@ window.onload = function() {
     asyncAdd('./dist/refresh.entry.js');
 };
 document.addEventListener("DOMContentLoaded", function() {
+	require('./redirect.js');
     contain(); //当页面加载稳定时，执行
 }, false);
+

@@ -33,7 +33,10 @@ var getImgs = (function(){
     var getPara = function(){
     	var select = random(0,30);
     	var para = data.phara[select];
-    	return para;
+    	var share = data.share[select];
+    	return {
+    		para,share
+    	};
     }
     return {
     	getImgs,
