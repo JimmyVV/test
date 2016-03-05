@@ -85,7 +85,7 @@ webpackJsonp([2],[
 	        console.log(e.message);
 	    }
 
-	    refresher.on('tab', function () {
+	    refresher.on('tap', function () {
 	        //更新图片内容
 	        for (var i = 0; i < 9; i++) {
 	            imgsItem[i].src = '';
