@@ -21,7 +21,7 @@ var getImgs = (function(){
         //比如: ['images/people/小明.png',....]
     var getImgs = function() {
         var kindsof = random(0, 2),
-            select = produceNum(27, 9), //27,9
+            select = produceNum(26, 9), //26,9
             srcs = [],
             src;
         for (var i of select) {
@@ -31,7 +31,7 @@ var getImgs = (function(){
         return srcs;
     }
     var getPara = function(){
-    	var select = random(0,20);
+    	var select = random(0,30);
     	var para = data.phara[select];
     	return para;
     }
