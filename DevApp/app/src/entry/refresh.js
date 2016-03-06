@@ -9,52 +9,48 @@ var refresh = (function() {
         return number;
     }
     var produceNum = function(num, limit) { //在[0,num]间随机生成limit个不同的数字
-        var a = [];
-        for (var i = 0; i < num; i++) {
-            a.push(i);
+            var a = [];
+            for (var i = 0; i < num; i++) {
+                a.push(i);
+            }
+            a.sort(function() {
+                return 0.5 - Math.random()
+            });
+            a.length = limit;
+            return a;
         }
-        a.sort(function() {
-            return 0.5 - Math.random()
-        });
-        a.length = limit;
-        return a;
+        //得到更新Img的连接
+        //比如: ['images/people/小明.png',....]
+    var getImgs = function() {
+        var kindsof = random(0, 2), //[0,2)
+            select = produceNum(26, 9), //26,9
+            srcs = [],
+            src,
+            headName = [];
+        for (var i in select) {
+            src = `images/people/${data[kindsof][i]}.png`;
+            headName.push(firstName[kindsof][i]);
+            srcs.push(src);
+        }
+        return {
+            srcs,
+            headName
+        };
     }
-    var loadImgs = function loadImgs() {
+
+    var loadImgs = function() {
         var people = getImgs(); //获得新的Img连接地址
         for (var i in people.srcs) {
             imgsItem[i].src = people.srcs[i];
             imgsItem[i].alt = people.headName[i];
             imgsItem[i].onload = function() {
-                var _this = this;
-
                 this.classList.add('active');
-                setTimeout(function() {
-                    _this.classList.remove('active');
+                setTimeout(() => {
+                    this.classList.remove('active');
                 }, 1400);
-            };
+            }
         }
-    };
-
-    //得到更新Img的连接
-    //比如: ['images/people/小明.png',....]
-    var getImgs = function getImgs() {
-        var kindsof = random(0, 2),
-            //[0,2)
-            select = produceNum(26, 9),
-            //26,9
-            srcs = [],
-            src,
-            headName = [];
-        for (var i = 0; i < select.length; i++) {
-            src = 'images/people/' + _data.data[kindsof][i] + '.png';
-            headName.push(_data.firstName[kindsof][i]);
-            srcs.push(src);
-        }
-        return {
-            srcs: srcs,
-            headName: headName
-        };
-    };
+    }
 
     refresher.on('click', function() {
         //更新图片内容

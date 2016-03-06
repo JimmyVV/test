@@ -4,7 +4,7 @@ webpackJsonp([2],[
 
 	'use strict';
 
-	var _data2 = __webpack_require__(3);
+	var _data = __webpack_require__(3);
 
 	var $ = __webpack_require__(1);
 	var refresh = function () {
@@ -28,6 +28,27 @@ webpackJsonp([2],[
 	        a.length = limit;
 	        return a;
 	    };
+	    //得到更新Img的连接
+	    //比如: ['images/people/小明.png',....]
+	    var getImgs = function getImgs() {
+	        var kindsof = random(0, 2),
+	            //[0,2)
+	        select = produceNum(26, 9),
+	            //26,9
+	        srcs = [],
+	            src,
+	            headName = [];
+	        for (var i in select) {
+	            src = 'images/people/' + _data.data[kindsof][i] + '.png';
+	            headName.push(_data.firstName[kindsof][i]);
+	            srcs.push(src);
+	        }
+	        return {
+	            srcs: srcs,
+	            headName: headName
+	        };
+	    };
+
 	    var loadImgs = function loadImgs() {
 	        var people = getImgs(); //获得新的Img连接地址
 	        for (var i in people.srcs) {
@@ -42,29 +63,6 @@ webpackJsonp([2],[
 	                }, 1400);
 	            };
 	        }
-	    };
-
-	    //得到更新Img的连接
-	    //比如: ['images/people/小明.png',....]
-	    var getImgs = function getImgs() {
-	        var kindsof = random(0, 2),
-
-	        //[0,2)
-	        select = produceNum(26, 9),
-
-	        //26,9
-	        srcs = [],
-	            src,
-	            headName = [];
-	        for (var i = 0; i < select.length; i++) {
-	            src = 'images/people/' + _data.data[kindsof][i] + '.png';
-	            headName.push(_data.firstName[kindsof][i]);
-	            srcs.push(src);
-	        }
-	        return {
-	            srcs: srcs,
-	            headName: headName
-	        };
 	    };
 
 	    refresher.on('click', function () {
