@@ -52,7 +52,7 @@ var refresh = (function() {
     }
 
 
-    refresher.on('click', function() {
+    refresher.on('tap', function() {
         //更新图片内容
         for (var i = 0; i < 9; i++) {
             imgsItem[i].src = '';
