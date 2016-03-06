@@ -51,12 +51,12 @@ var share = (function(){
             isShow = true;
         };
         event.stopPropagation();
-    },'touchend');
+    },'click');
     bind($('body'),function(){
         if(isShow){
             document.body.removeChild(coverDiv);
             isShow = false;
         }
-    },"touchend")
+    },"click")
 })()
 

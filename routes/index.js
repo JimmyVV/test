@@ -5,14 +5,17 @@ var express = require('express'),
 module.exports = function(app) {
     app.route('/')
         .get(function(req, res) {
-            res.render('index',{imgs:detail.getImgs()});
+            var people = detail.getImgs();
+            console.log(people);
+            res.render('index',{imgs:people.srcs,firstName:people.headName});
         });
     //获取到明星之后，填入图片链接
     app.route('/detail')
         .get(function(req, res) {
              var name = req.query.name; //获取抽取到的明星
+             var firstName = req.query.firstName;  //获取到姓
              var para = detail.getPara(); //获取分享文案
-             res.render('detail',{name:name,para:para.para,share:para.share});
+             res.render('detail',{name:name,para:para.para,share:para.share,firstName:firstName});
         });
     //提醒用户，使用手机端;
     app.route('/redict')
@@ -20,4 +23,5 @@ module.exports = function(app) {
             res.render('redict');
         });
 }
+
 

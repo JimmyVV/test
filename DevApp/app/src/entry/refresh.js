@@ -1,4 +1,4 @@
-import { data } from './data.js';
+import { data,firstName } from './data.js';
 var $ = require('zepto');
 var refresh = (function() {
     var refresher = $('.refresh-btn'), //更新btn
@@ -25,19 +25,23 @@ var refresh = (function() {
         var kindsof = random(0, 2), //[0,2)
             select = produceNum(26, 9), //26,9
             srcs = [],
-            src;
+            src,
+            headName=[];
         for (var i of select) {
             src = `images/people/${data[kindsof][i]}.png`;
+            headName.push(firstName[kindsof][i]);
             srcs.push(src);
-            console.log(i,src);
         }
-        return srcs;
+        return {
+        	srcs,headName
+        };
     }
     try {
         var loadImgs = function() {
-            var srcs = getImgs(); //获得新的Img连接地址
-            for (var i in srcs) {
-                imgsItem[i].src = srcs[i];
+            var people = getImgs(); //获得新的Img连接地址
+            for (var i in people.srcs) {
+                imgsItem[i].src = people.srcs[i];
+                imgsItem[i].alt = people.headName[i];
                 imgsItem[i].onload = function() {
                     this.classList.add('active');
                     setTimeout(() => {
@@ -50,7 +54,7 @@ var refresh = (function() {
     	console.log(e.message);
     }
 
-    refresher.on('tap', function() {
+    refresher.on('click', function() {
         //更新图片内容
         for(var i = 0; i<9;i++){
         	imgsItem[i].src = '';

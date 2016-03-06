@@ -6,12 +6,13 @@ var contain = function() {
         var reg = /people+\/(.*).png/;
         return src.match(reg)[1];
     }
-    var returnHref = function(src) {
-        return `/detail?name=${src}`;
+    var returnHref = function(src,firstName) {
+        return `/detail?name=${src}&firstName=${firstName}`;
     }
-    container.on("touchstart", 'img', function(e) {
+    container.on("click", 'img', function(e) {
         var src = getPara(e.target.src);
-        window.location.href = returnHref(src);
+        var firstName = this.alt;
+        window.location.href = returnHref(src,firstName);
     })
 };
 //异步加载数据
@@ -22,9 +23,9 @@ var asyncAdd = function(src) {
 }
 window.onload = function() {
     asyncAdd('./dist/refresh.entry.js');
+    contain(); //当页面加载稳定时，执行
 };
 document.addEventListener("DOMContentLoaded", function() {
 	require('./redirect.js');
-    contain(); //当页面加载稳定时，执行
 }, false);
 

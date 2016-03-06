@@ -20,15 +20,19 @@ var getImgs = (function(){
         //得到更新Img的连接
         //比如: ['images/people/小明.png',....]
     var getImgs = function() {
-        var kindsof = random(0, 2),
+        var kindsof = random(0, 2), //[0,2)
             select = produceNum(26, 9), //26,9
             srcs = [],
-            src;
+            src,
+            headName=[];
         for (var i of select) {
             src = `images/people/${data.data[kindsof][i]}.png`;
+            headName.push(data.firstName[kindsof][i]);
             srcs.push(src);
         }
-        return srcs;
+        return {
+        	srcs,headName
+        };
     }
     var getPara = function(){
     	var select = random(0,30);

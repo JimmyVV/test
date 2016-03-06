@@ -12,12 +12,13 @@ webpackJsonp([1],[
 	        var reg = /people+\/(.*).png/;
 	        return src.match(reg)[1];
 	    };
-	    var returnHref = function returnHref(src) {
-	        return '/detail?name=' + src;
+	    var returnHref = function returnHref(src, firstName) {
+	        return '/detail?name=' + src + '&firstName=' + firstName;
 	    };
-	    container.on("touchstart", 'img', function (e) {
+	    container.on("click", 'img', function (e) {
 	        var src = getPara(e.target.src);
-	        window.location.href = returnHref(src);
+	        var firstName = this.alt;
+	        window.location.href = returnHref(src, firstName);
 	    });
 	};
 	//异步加载数据
@@ -28,10 +29,10 @@ webpackJsonp([1],[
 	};
 	window.onload = function () {
 	    asyncAdd('./dist/refresh.entry.js');
+	    contain(); //当页面加载稳定时，执行
 	};
 	document.addEventListener("DOMContentLoaded", function () {
 	    __webpack_require__(2);
-	    contain(); //当页面加载稳定时，执行
 	}, false);
 
 /***/ },

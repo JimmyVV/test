@@ -36,7 +36,8 @@ webpackJsonp([2],[
 	        select = produceNum(26, 9),
 	            //26,9
 	        srcs = [],
-	            src;
+	            src,
+	            headName = [];
 	        var _iteratorNormalCompletion = true;
 	        var _didIteratorError = false;
 	        var _iteratorError = undefined;
@@ -46,8 +47,8 @@ webpackJsonp([2],[
 	                var i = _step.value;
 
 	                src = 'images/people/' + _data.data[kindsof][i] + '.png';
+	                headName.push(_data.firstName[kindsof][i]);
 	                srcs.push(src);
-	                console.log(i, src);
 	            }
 	        } catch (err) {
 	            _didIteratorError = true;
@@ -64,13 +65,16 @@ webpackJsonp([2],[
 	            }
 	        }
 
-	        return srcs;
+	        return {
+	            srcs: srcs, headName: headName
+	        };
 	    };
 	    try {
 	        var loadImgs = function loadImgs() {
-	            var srcs = getImgs(); //获得新的Img连接地址
-	            for (var i in srcs) {
-	                imgsItem[i].src = srcs[i];
+	            var people = getImgs(); //获得新的Img连接地址
+	            for (var i in people.srcs) {
+	                imgsItem[i].src = people.srcs[i];
+	                imgsItem[i].alt = people.headName[i];
 	                imgsItem[i].onload = function () {
 	                    var _this = this;
 
@@ -85,7 +89,7 @@ webpackJsonp([2],[
 	        console.log(e.message);
 	    }
 
-	    refresher.on('tap', function () {
+	    refresher.on('click', function () {
 	        //更新图片内容
 	        for (var i = 0; i < 9; i++) {
 	            imgsItem[i].src = '';
@@ -105,9 +109,11 @@ webpackJsonp([2],[
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	var data = [["鹿晗", "华晨宇", "王俊凯", "王凯", "朴海镇", "吴磊", "宋仲基", "张艺兴", "张翰", "易烊千玺", "吴亦凡", "权志龙", "郑容和", "罗志祥", "TOP", "吴彦祖", "盛一伦", "王祖蓝", "宋小宝", "李光洙", "尔康", "黄子韬", "高晓松", "黄渤", "孙红雷", "叫兽易小星"], ["霍建华", "阮经天", "胡歌", "朴灿烈", "李易峰", "周杰伦", "撒贝宁", "李钟硕", "杨洋", "蒋劲夫", "陈伟霆", "王源", "黄致列", "井柏然", "陈晓", "刘恺威", "钟汉良", "薛之谦", "艾克里里", "岳云鹏", "肖骁", "王思聪", "沙溢", "陈赫", "邓超", "白客", "贾乃亮", "大张伟"], ["林志颖", "王大陆", "汪小菲", "陈建州", "大鹏", "张震", "林峰", "朱亚文", "刘烨", "尼坤", "张智霖", "王力宏", "杜海涛", "何炅", "小李", "余文乐", "陈柏霖", "冯绍峰", "马东", "包贝尔", "徐峥", "袁弘", "林更新", "郑允浩", "金在中", "金钟国", "武艺", "林丹"]];
+	var data = [["鹿晗", "华晨宇", "王俊凯", "王凯", "朴海镇", "吴磊", "宋仲基", "张艺兴", "张翰", "易烊千玺", "吴亦凡", "权志龙", "郑容和", "罗志祥", "TOP", "吴彦祖", "盛一伦", "王祖蓝", "宋小宝", "李光洙", "尔康", "黄子韬", "高晓松", "黄渤", "孙红雷", "叫兽易小星"], ["霍建华", "阮经天", "胡歌", "朴灿烈", "李易峰", "周杰伦", "撒贝宁", "李钟硕", "杨洋", "蒋劲夫", "陈伟霆", "王源", "黄致列", "井柏然", "陈晓", "刘恺威", "钟汉良", "薛之谦", "艾克里里", "岳云鹏", "肖骁", "王思聪", "沙溢", "陈赫", "邓超", "白客", "贾乃亮", "大张伟"], ["林志颖", "王大陆", "陈建州", "大鹏", "张震", "郑恺", "朱亚文", "刘烨", "尼坤", "张智霖", "王力宏", "杜海涛", "何炅", "余文乐", "陈柏霖", "冯绍峰", "马东", "包贝尔", "徐峥", "袁弘", "林更新", "郑允浩", "金在中", "金钟国", "武艺", "林丹", "小李"]];
+	var firstName = [['鹿', '华', '王', '王', '朴', '吴', '宋', '张', '张', '易', '吴', '权', '郑', '罗', '塔', '吴', '盛', '王', '宋', '李', '福', '法', '高', '黄', '孙', '易'], ['霍', '阮', '胡', '朴', '李', '周', '撒', '李', '杨', '蒋', '陈', '王', '黄', '井', '陈', '刘', '钟', '陈', '岳', '肖', '王', '沙', '陈', '邓', '白', '贾', '大'], ['林', '王', '陈', '董', '张', '郑', '朱', '刘', '尼', '张', '王', '杜', '何', '余', '陈', '冯', '马', '包', '徐', '袁', '林', '郑', '金', '金', '武', '林', '小']];
 
 	exports.data = data;
+	exports.firstName = firstName;
 
 /***/ }
 ]);
