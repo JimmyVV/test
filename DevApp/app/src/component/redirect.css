@@ -1,11 +1,16 @@
-body{
-    padding-top: 30%;
-    box-sizing:border-box;
+body span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    display: inline-block;
 }
-body p{
-        font-size: 1.7rem;
-        margin: .5em 0;
-        color: #fed567;
-        text-shadow: 0px 2px 1px #fd637e, 0px 1px 2px #fd637e, 0px 1px 3px #fd637e, 0px 1px 4px #fd637e, 0px 1px 5px #fd637e, 0px 1px 6px #fd637e, 0px 1px 7px #fd637e, 0px 1px 8px #fd637e, 0px 1px 9px #fd637e;
-        font-weight: bold;
-    }
+
+body p {
+    font-size: 1.7rem;
+    margin: .5em 0;
+    color: #fed567;
+    text-shadow: 0px 2px 1px #fd637e, 0px 1px 2px #fd637e, 0px 1px 3px #fd637e, 0px 1px 4px #fd637e, 0px 1px 5px #fd637e, 0px 1px 6px #fd637e, 0px 1px 7px #fd637e, 0px 1px 8px #fd637e, 0px 1px 9px #fd637e;
+    font-weight: bold;
+}

@@ -17,7 +17,9 @@ function isMobile(){
 }
 if(!isMobile()){
     require('../component/redirect.css');
-    document.body.innerHTML = `<p class="first-line">亲，翻个爱豆做男友～</p>
+    document.body.innerHTML = `<span>
+<p>亲，翻个爱豆做男友～</p>
     <img src="images/QR_code.png"/>
-    <p>请用手机扫描二维码</p>`;
+    <p>请用手机扫描二维码</p>
+</span>`;
 }

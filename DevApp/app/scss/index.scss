@@ -31,13 +31,14 @@
 .foot {
     margin: 1.5em 0;
     .footFont {
-        margin-top: 20px;
+        margin-top: 0;
         width: 45%;
     }
 }
 
 .refresh {
-    margin: 2em 0;
+    margin: 3em 0;
+    margin-bottom: 0;
     button {
         position: relative;
         box-sizing: border-box;

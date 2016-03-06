@@ -30,17 +30,45 @@ webpackJsonp([1],[
 	    asyncAdd('./dist/refresh.entry.js');
 	};
 	document.addEventListener("DOMContentLoaded", function () {
-	    __webpack_require__(8);
+	    __webpack_require__(2);
 	    contain(); //当页面加载稳定时，执行
 	}, false);
 
 /***/ },
 /* 1 */,
-/* 2 */,
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	function isMobile() {
+	    var sUserAgent = navigator.userAgent.toLowerCase();
+	    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+	    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+	    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+	    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+	    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+	    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+	    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+	    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+	    var bIsMobile = !!sUserAgent.match(/applewebkit.*mobile.*/); //是否为移动终端
+	    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bIsMobile) {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	}
+	if (!isMobile()) {
+	    __webpack_require__(9);
+	    document.body.innerHTML = "<span>\n<p>亲，翻个爱豆做男友～</p>\n    <img src=\"images/QR_code.png\"/>\n    <p>请用手机扫描二维码</p>\n</span>";
+	}
+
+/***/ },
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -95,7 +123,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -349,34 +377,6 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	function isMobile() {
-	    var sUserAgent = navigator.userAgent.toLowerCase();
-	    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
-	    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
-	    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
-	    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
-	    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
-	    var bIsAndroid = sUserAgent.match(/android/i) == "android";
-	    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
-	    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
-	    var bIsMobile = !!sUserAgent.match(/applewebkit.*mobile.*/); //是否为移动终端
-	    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bIsMobile) {
-	        return true;
-	    } else {
-	        return false;
-	    }
-	}
-	if (!isMobile()) {
-	    __webpack_require__(9);
-	    document.body.innerHTML = "<p class=\"first-line\">亲，翻个爱豆做男友～</p>\n    <img src=\"images/QR_code.png\"/>\n    <p>请用手机扫描二维码</p>";
-	}
-
-/***/ },
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -386,7 +386,7 @@ webpackJsonp([1],[
 	var content = __webpack_require__(10);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(7)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -406,12 +406,12 @@ webpackJsonp([1],[
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(6)();
+	exports = module.exports = __webpack_require__(7)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "body{\n    padding-top: 30%;\n    box-sizing:border-box;\n}\nbody p{\n        font-size: 1.7rem;\n        margin: .5em 0;\n        color: #fed567;\n        text-shadow: 0px 2px 1px #fd637e, 0px 1px 2px #fd637e, 0px 1px 3px #fd637e, 0px 1px 4px #fd637e, 0px 1px 5px #fd637e, 0px 1px 6px #fd637e, 0px 1px 7px #fd637e, 0px 1px 8px #fd637e, 0px 1px 9px #fd637e;\n        font-weight: bold;\n    }", ""]);
+	exports.push([module.id, "body span {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    margin: auto;\n    display: inline-block;\n}\n\nbody p {\n    font-size: 1.7rem;\n    margin: .5em 0;\n    color: #fed567;\n    text-shadow: 0px 2px 1px #fd637e, 0px 1px 2px #fd637e, 0px 1px 3px #fd637e, 0px 1px 4px #fd637e, 0px 1px 5px #fd637e, 0px 1px 6px #fd637e, 0px 1px 7px #fd637e, 0px 1px 8px #fd637e, 0px 1px 9px #fd637e;\n    font-weight: bold;\n}\n", ""]);
 
 	// exports
 
