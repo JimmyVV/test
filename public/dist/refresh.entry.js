@@ -38,11 +38,11 @@ webpackJsonp([2],[
 	        srcs = [],
 	            src,
 	            headName = [];
-	        for (var i in select) {
-	            src = 'images/people/' + _data.data[kindsof][i] + '.png';
+	        select.forEach(function(i){
+	        	src = 'images/people/' + _data.data[kindsof][i] + '.png';
 	            headName.push(_data.firstName[kindsof][i]);
 	            srcs.push(src);
-	        }
+	        })
 	        return {
 	            srcs: srcs, headName: headName
 	        };
