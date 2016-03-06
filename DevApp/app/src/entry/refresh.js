@@ -27,7 +27,7 @@ var refresh = (function() {
             srcs = [],
             src,
             headName=[];
-        for (var i of select) {
+        for (var i in select) {
             src = `images/people/${data[kindsof][i]}.png`;
             headName.push(firstName[kindsof][i]);
             srcs.push(src);

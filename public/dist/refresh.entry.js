@@ -38,33 +38,11 @@ webpackJsonp([2],[
 	        srcs = [],
 	            src,
 	            headName = [];
-	        var _iteratorNormalCompletion = true;
-	        var _didIteratorError = false;
-	        var _iteratorError = undefined;
-
-	        try {
-	            for (var _iterator = select[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                var i = _step.value;
-
-	                src = 'images/people/' + _data.data[kindsof][i] + '.png';
-	                headName.push(_data.firstName[kindsof][i]);
-	                srcs.push(src);
-	            }
-	        } catch (err) {
-	            _didIteratorError = true;
-	            _iteratorError = err;
-	        } finally {
-	            try {
-	                if (!_iteratorNormalCompletion && _iterator.return) {
-	                    _iterator.return();
-	                }
-	            } finally {
-	                if (_didIteratorError) {
-	                    throw _iteratorError;
-	                }
-	            }
+	        for (var i in select) {
+	            src = 'images/people/' + _data.data[kindsof][i] + '.png';
+	            headName.push(_data.firstName[kindsof][i]);
+	            srcs.push(src);
 	        }
-
 	        return {
 	            srcs: srcs, headName: headName
 	        };
