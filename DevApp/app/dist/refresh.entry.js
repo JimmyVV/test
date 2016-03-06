@@ -28,6 +28,21 @@ webpackJsonp([2],[
 	        a.length = limit;
 	        return a;
 	    };
+	    var loadImgs = function loadImgs() {
+	        var people = getImgs(); //获得新的Img连接地址
+	        for (var i in people.srcs) {
+	            imgsItem[i].src = people.srcs[i];
+	            imgsItem[i].alt = people.headName[i];
+	            imgsItem[i].onload = function () {
+	                var _this = this;
+
+	                this.classList.add('active');
+	                setTimeout(function () {
+	                    _this.classList.remove('active');
+	                }, 1400);
+	            };
+	        }
+	    };
 	    //得到更新Img的连接
 	    //比如: ['images/people/小明.png',....]
 	    var getImgs = function getImgs() {
@@ -47,22 +62,6 @@ webpackJsonp([2],[
 	            srcs: srcs,
 	            headName: headName
 	        };
-	    };
-
-	    var loadImgs = function loadImgs() {
-	        var people = getImgs(); //获得新的Img连接地址
-	        for (var i in people.srcs) {
-	            imgsItem[i].src = people.srcs[i];
-	            imgsItem[i].alt = people.headName[i];
-	            imgsItem[i].onload = function () {
-	                var _this = this;
-
-	                this.classList.add('active');
-	                setTimeout(function () {
-	                    _this.classList.remove('active');
-	                }, 1400);
-	            };
-	        }
 	    };
 
 	    refresher.on('click', function () {
