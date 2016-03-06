@@ -5,7 +5,6 @@ var express = require('express'),
 module.exports = function(app) {
     app.route('/')
         .get(function(req, res) {
-            console.log(detail.getImgs());
             res.render('index',{imgs:detail.getImgs()});
         });
     //获取到明星之后，填入图片链接
