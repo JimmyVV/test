@@ -23,7 +23,7 @@ var refresh = (function() {
             var people = getImgs(); //获得新的Img连接地址
             for (var i in people.srcs) {
                 imgsItem[i].src = people.srcs[i];
-                imgsItem[i].alt = people.headName[i];
+                imgsItem[i].dataset.firstName = people.headName[i];
                 imgsItem[i].onload = function() {
                     this.classList.add('active');
                     setTimeout(() => {

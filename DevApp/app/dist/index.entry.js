@@ -17,7 +17,7 @@ webpackJsonp([1],[
 	    };
 	    container.on("click", 'img', function (e) {
 	        var src = getPara(e.target.src);
-	        var firstName = this.alt;
+	        var firstName = this.dataset.firstName;
 	        window.location.href = returnHref(src, firstName);
 	    });
 	};
