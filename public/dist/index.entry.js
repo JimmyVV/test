@@ -12,13 +12,19 @@ webpackJsonp([1],[
 	        var reg = /people+\/(.*).png/;
 	        return src.match(reg)[1];
 	    };
-	    var returnHref = function returnHref(src, firstName) {
-	        return '/detail?name=' + src + '&firstName=' + firstName;
+	    var random = function random(min, max) {
+	        var diff = max - min;
+	        var number = Math.floor(Math.random() * diff + min);
+	        return number;
+	    };
+	    var returnHref = function returnHref(src, firstName, random) {
+	        return '/detail?name=' + src + '&firstName=' + firstName + '&random=' + random;
 	    };
 	    container.on("click", 'img', function (e) {
 	        var src = getPara(e.target.src);
 	        var firstName = e.target.dataset.firstname;
-	        window.location.href = returnHref(src, firstName);
+	        var select = random(0, 30);
+	        window.location.href = returnHref(src, firstName, select);
 	    });
 	};
 	//异步加载数据

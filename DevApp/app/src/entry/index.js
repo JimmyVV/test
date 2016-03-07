@@ -6,13 +6,19 @@ var contain = function() {
         var reg = /people+\/(.*).png/;
         return src.match(reg)[1];
     }
-    var returnHref = function(src,firstName) {
-        return `/detail?name=${src}&firstName=${firstName}`;
+    var random = function(min, max) {
+        var diff = max - min;
+        var number = Math.floor(Math.random() * diff + min);
+        return number;
+    }
+    var returnHref = function(src,firstName,random) {
+        return `/detail?name=${src}&firstName=${firstName}&random=${random}`;
     }
     container.on("click", 'img', function(e) {
         var src = getPara(e.target.src);
         var firstName = e.target.dataset.firstname;
-        window.location.href = returnHref(src,firstName);
+        var select = random(0,30);
+        window.location.href = returnHref(src,firstName,select);
     })
 };
 //异步加载数据

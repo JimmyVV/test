@@ -14,7 +14,8 @@ module.exports = function(app) {
         .get(function(req, res) {
              var name = req.query.name; //获取抽取到的明星
              var firstName = req.query.firstName;  //获取到姓
-             var para = detail.getPara(); //获取分享文案
+             var select = req.query.random;
+             var para = detail.getPara(select); //获取分享文案
              res.render('detail',{name:name,para:para.para,share:para.share,firstName:firstName});
         });
     //提醒用户，使用手机端;

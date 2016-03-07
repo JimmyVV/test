@@ -34,12 +34,11 @@ var getImgs = (function(){
         	srcs,headName
         };
     }
-    var getPara = function(){
-    	var select = random(0,30);
+    var getPara = function(select){
     	var para = data.phara[select];
     	var share = data.share[select];
     	return {
-    		para,share
+    		para,share,select
     	};
     }
     return {
