@@ -60,16 +60,52 @@ webpackJsonp([1],[
 	    }
 	}
 	if (!isMobile()) {
-	    __webpack_require__(9);
+	    __webpack_require__(3);
 	    document.body.innerHTML = "<span>\n<p>亲，翻个爱豆做男友～</p>\n    <img src=\"images/QR_code.png\"/>\n    <p>请用手机扫描二维码</p>\n</span>";
 	}
 
 /***/ },
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(4);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(6)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./redirect.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./redirect.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(5)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "body span {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    margin: auto;\n    display: inline-block;\n}\n\nbody p {\n    font-size: 1.7rem;\n    margin: .5em 0;\n    color: #fed567;\n    text-shadow: 0px 2px 1px #fd637e, 0px 1px 2px #fd637e, 0px 1px 3px #fd637e, 0px 1px 4px #fd637e, 0px 1px 5px #fd637e, 0px 1px 6px #fd637e, 0px 1px 7px #fd637e, 0px 1px 8px #fd637e, 0px 1px 9px #fd637e;\n    font-weight: bold;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 5 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -124,7 +160,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -375,46 +411,6 @@ webpackJsonp([1],[
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
-
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(10);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(8)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./redirect.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./redirect.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(7)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "body span {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    margin: auto;\n    display: inline-block;\n}\n\nbody p {\n    font-size: 1.7rem;\n    margin: .5em 0;\n    color: #fed567;\n    text-shadow: 0px 2px 1px #fd637e, 0px 1px 2px #fd637e, 0px 1px 3px #fd637e, 0px 1px 4px #fd637e, 0px 1px 5px #fd637e, 0px 1px 6px #fd637e, 0px 1px 7px #fd637e, 0px 1px 8px #fd637e, 0px 1px 9px #fd637e;\n    font-weight: bold;\n}\n", ""]);
-
-	// exports
 
 
 /***/ }

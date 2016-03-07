@@ -21,6 +21,7 @@ var refresh = (function() {
     }
     var loadImgs = function() {
             var people = getImgs(); //获得新的Img连接地址
+            console.log(people.srcs);
             for (var i in people.srcs) {
                 imgsItem[i].src = people.srcs[i];
                 imgsItem[i].alt = people.headName[i];
@@ -35,14 +36,14 @@ var refresh = (function() {
         //得到更新Img的连接
         //比如: ['images/people/小明.png',....]
     var getImgs = function() {
-        var kindsof = random(0, 2), //[0,2)
+        var kindsof = random(0, 3), //[0,2)
             select = produceNum(26, 9), //26,9
             srcs = [],
             src,
             headName = [];
         for (var i in select) {
-            src = `images/people/${data[kindsof][i]}.png`;
-            headName.push(firstName[kindsof][i]);
+            src = `images/people/${data[kindsof][select[i]]}.png`;
+            headName.push(firstName[kindsof][select[i]]);
             srcs.push(src);
         }
         return {

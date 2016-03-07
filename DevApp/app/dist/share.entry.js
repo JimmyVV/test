@@ -46,7 +46,7 @@
 
 	"use strict";
 
-	var cover = __webpack_require__(4);
+	var cover = __webpack_require__(8);
 	var $ = function $(selector) {
 	    return document.querySelector(selector);
 	};
@@ -113,63 +113,8 @@
 /* 1 */,
 /* 2 */,
 /* 3 */,
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	__webpack_require__(5);
-	var createCover = function createCover() {
-		console.dir(document);
-		var div = document.createElement("div");
-		div.className = "cover";
-		div.innerHTML = '<img src="http://higege.hustonline.net/img/share.png">';
-		return div;
-	};
-	exports.createCover = createCover;
-
-/***/ },
+/* 4 */,
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(6);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(8)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./cover.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./cover.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(7)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".cover {\n    position: absolute;\n    width: 100%;\n    top: 0;\n    left: 0;\n    height: 100%;\n    z-index: 1000;\n    background-color: rgba(64, 61, 61, .72);\n}\n\n.cover img {\n    position: absolute;\n    right: 0;\n    top: .5rem;\n    width: 7.2857142rem;\n    z-index: 5;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 7 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -224,7 +169,7 @@
 	};
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -475,6 +420,63 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
+
+
+/***/ },
+/* 7 */,
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	__webpack_require__(9);
+	var createCover = function createCover() {
+		console.dir(document);
+		var div = document.createElement("div");
+		div.className = "cover";
+		div.innerHTML = '<img src="http://higege.hustonline.net/img/share.png">';
+		return div;
+	};
+	exports.createCover = createCover;
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(10);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(6)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./cover.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./cover.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(5)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".cover {\n    position: absolute;\n    width: 100%;\n    top: 0;\n    left: 0;\n    height: 100%;\n    z-index: 1000;\n    background-color: rgba(64, 61, 61, .72);\n}\n\n.cover img {\n    position: absolute;\n    right: 0;\n    top: .5rem;\n    width: 7.2857142rem;\n    z-index: 5;\n}\n", ""]);
+
+	// exports
 
 
 /***/ }

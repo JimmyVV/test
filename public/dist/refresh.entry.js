@@ -1,10 +1,11 @@
-webpackJsonp([2],[
-/* 0 */
+webpackJsonp([2],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _data = __webpack_require__(3);
+	var _data = __webpack_require__(7);
 
 	var $ = __webpack_require__(1);
 	var refresh = function () {
@@ -30,6 +31,7 @@ webpackJsonp([2],[
 	    };
 	    var loadImgs = function loadImgs() {
 	        var people = getImgs(); //获得新的Img连接地址
+	        console.log(people.srcs);
 	        for (var i in people.srcs) {
 	            imgsItem[i].src = people.srcs[i];
 	            imgsItem[i].alt = people.headName[i];
@@ -46,7 +48,7 @@ webpackJsonp([2],[
 	    //得到更新Img的连接
 	    //比如: ['images/people/小明.png',....]
 	    var getImgs = function getImgs() {
-	        var kindsof = random(0, 2),
+	        var kindsof = random(0, 3),
 	            //[0,2)
 	        select = produceNum(26, 9),
 	            //26,9
@@ -54,8 +56,8 @@ webpackJsonp([2],[
 	            src,
 	            headName = [];
 	        for (var i in select) {
-	            src = 'images/people/' + _data.data[kindsof][i] + '.png';
-	            headName.push(_data.firstName[kindsof][i]);
+	            src = 'images/people/' + _data.data[kindsof][select[i]] + '.png';
+	            headName.push(_data.firstName[kindsof][select[i]]);
 	            srcs.push(src);
 	        }
 	        return {
@@ -74,9 +76,8 @@ webpackJsonp([2],[
 	}();
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
+
+/***/ 7:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -90,4 +91,5 @@ webpackJsonp([2],[
 	exports.firstName = firstName;
 
 /***/ }
-]);
+
+});
