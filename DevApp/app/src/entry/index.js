@@ -11,7 +11,7 @@ var contain = function() {
     }
     container.on("click", 'img', function(e) {
         var src = getPara(e.target.src);
-        var firstName = this.dataset.firstName;
+        var firstName = e.target.dataset.firstname;
         window.location.href = returnHref(src,firstName);
     })
 };
