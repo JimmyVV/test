@@ -26,8 +26,8 @@ var getImgs = (function(){
             src,
             headName=[];
         for (var i of select) {
-            src = `images/people/${data.data[kindsof][select[i]]}.png`;
-            headName.push(data.firstName[kindsof][select[i]]);
+            src = `images/people/${data.data[kindsof][i]}.png`;
+            headName.push(data.firstName[kindsof][i]);
             srcs.push(src);
         }
         return {
